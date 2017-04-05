@@ -20,6 +20,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @group = Group.find(params[:group_id])
+
+    redirect_to edit_group_post_path(@post)
+  end
+
   private
 
   def post_params
