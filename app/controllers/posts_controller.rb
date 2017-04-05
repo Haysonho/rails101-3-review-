@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+
   def create
     @group = Group.find(params[:group_id])
     @post = Post.new(post_params)
@@ -22,14 +23,21 @@ class PostsController < ApplicationController
 
   def edit
     @group = Group.find(params[:group_id])
+    @post = Post.find(params[:id])
 
-    redirect_to edit_group_post_path(@post)
   end
+
+  def destroy
+    @group = Group.find(params[:group_id])
+    @post = Post.find(params[:id])
+    if @post.destroy
+        redirect_to account_posts_path
+      end
+    end
 
   private
 
   def post_params
     params.require(:post).permit(:content)
   end
-
 end
