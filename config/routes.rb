@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     end
     resources :posts
     resources :reviews
-  end
+    end
+
 
     namespace :account do
       resources :groups
       resources :posts
+      resources :reviews
     end
   root 'groups#index'
 end

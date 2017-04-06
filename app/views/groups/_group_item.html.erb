@@ -1,4 +1,3 @@
-<% @groups.each do |group| %>
 <tr>
   <td><%= link_to(group.title, group_path(group)) %></td>
   <td><%= render_group_description(group) %></td>
@@ -11,4 +10,3 @@
     <% end %>
   </td>
 </tr>
-<% end %>
